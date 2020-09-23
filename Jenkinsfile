@@ -18,7 +18,7 @@ pipeline {
       
       stage("Deploy"){
               steps{
-                bat '''copy C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\Deployment\\target\\HelloWorld03.war C:\\Program Files\\apache-tomcat-8.5.58\\webapps\\'''
+                bat "deploy adapters: [tomcat8(credentialsId: '80aa8608-8d01-4248-9cb4-1e48210f66a2', path: '', url: 'http://localhost:9191')], contextPath: 'HelloWorld', war: 'HelloWorld03.war'"
             }
         }
 
