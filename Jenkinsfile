@@ -15,8 +15,8 @@ pipeline {
                 bat "mvn clean package"
             }
         }
-     Stage("deploy"){
-             Steps{
+     stage("deploy"){
+             steps{
                 bat "docker build --tag=webappsample ."
                 bat "docker tag webappsample rohini0304/docker03:websample"
                 bat "docker login -u 'rohini0304' -p 'Docker@123' docker.io"
